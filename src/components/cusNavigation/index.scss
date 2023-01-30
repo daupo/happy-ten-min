@@ -1,0 +1,16 @@
+	.status_bar {
+		// height: calc(var(--status-bar-height) + 14rpx) ;
+		width: 100%;
+	}
+
+	.under_bar {
+		display: flex;
+		align-items: center;
+		padding-left: 30rpx;
+
+		.pageTitle {
+			margin-left: 24rpx;
+			font-size: 34rpx;
+			font-weight: 600;
+		}
+	}

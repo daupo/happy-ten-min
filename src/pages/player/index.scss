@@ -1,0 +1,56 @@
+	
+.userBg {
+		position: relative;
+		height: 270rpx;
+		padding-right: 360rpx;
+		background-image: linear-gradient(45deg, #f35151, #fdb160);
+
+		.content {
+			display: flex;
+			padding: 50rpx 0 0 28rpx;
+
+			.avatar {
+				width: 100rpx;
+				height: 100rpx;
+				margin-right: 20rpx;
+
+				img {
+					width: 100%;
+					height: 100%;
+					border-radius: 50%;
+				}
+			}
+
+			.useInfo {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+				p:nth-of-type(1) {
+					font-size: 36rpx;
+					font-weight: 520;
+					color: #fafef8;
+				}
+
+				p:nth-of-type(2) {
+					font-size: 22rpx;
+					color: #fef9f8;
+				}
+			}
+		}
+
+	}
+	
+	
+.score {
+	display: flex;
+	padding: 0.5rem 1rem;
+	color: #333;
+	border: 1px solid darkred;
+	background-color: navajowhite;
+	border-radius: 1rem;
+	margin-top: 0.3rem;
+	margin-left: 1rem;
+	box-shadow: 0.125rem 0.125rem rgba(0, 0, 0, .4);
+}
+

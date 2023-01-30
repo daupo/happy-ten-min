@@ -1,0 +1,34 @@
+.h1Tittle {
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	font-weight: bolder;
+	font-style: italic;
+	font-size: 1.5625rem;
+	// color: #465867;
+	color: #fffaee;
+	padding: 0.5rem;
+	background-color: darkorange;
+}
+
+.box {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.ball {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 6vw;
+		height: 6vw;
+		color: #111;
+		background-color: skyblue;
+		border-radius: 50%;
+	}
+	
+.pgn {
+	margin-top: 1rem;
+	display: flex;
+	justify-content: center;
+}

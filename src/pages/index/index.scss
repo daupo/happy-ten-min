@@ -1,0 +1,92 @@
+.resultBox {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 6vw;
+	.ball {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 10vw;
+		height: 10vw;
+		color: #fff;
+		background-color: #ea5e51;
+		border-radius: 50%;
+	}
+}
+
+.resultAhead {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 16px 36px;
+	.text {
+		color: #666;
+		display: block;
+		margin-right: 5vw;
+	}
+	.countDown {
+		display: flex;
+	}
+}
+
+.showBox {
+	padding: 0 16px 16px;
+	.showItem {
+		color: #212a32;
+		font-style: oblique;
+		line-height: 1.5;
+	}
+}
+
+.footer {
+	width: 100vw;
+	height: 10vw;
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	.tab {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		background-color: darkorange;
+		&:first-child {
+			border-right: 0.0625rem solid #000 ;
+		}
+	}
+}
+
+.h1Tittle {
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	font-weight: bolder;
+	font-style: italic;
+	font-size: 1.5625rem;
+	color: #465867;
+}
+
+.popup {
+	padding: 0.5rem;
+	box-sizing: border-box;
+	.formItem {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:nth-child(2)>.formInput {
+			width: auto;
+		}
+	}
+	.formInput {
+		width: 40vw;
+		&.numberInput {
+			padding-top: 0.5rem;
+		}
+	}
+	.formBtn {
+		position: fixed;
+		bottom: 0.5rem;
+		width: calc(100vw - 1rem);
+	}
+}
+
