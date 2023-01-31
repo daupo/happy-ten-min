@@ -1,4 +1,5 @@
-import { Component, useRef, useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import React, { Component, useRef, useState } from "react";
 import { View, Text } from "@tarojs/components";
 import {
   Button,
@@ -103,13 +104,16 @@ export default class Index extends Component {
     // userInfo: "",
     // hasUserInfo: false,
     resultArr: ["00", "00", "00", "00", "00", "00", "00", "00"],
-    visible: true,  // test
+    visible: false,  // test
     showPicker: false,
     baseDesc: "点击选择",
     betCount: 1,
     showDialog: false,
-    showCascader: true,  // test
-    betKink: 1,
+    showCascader: false,  // test
+    betKink: 0,
+    numbers: '点击依次选择',
+    betIssue: '123',
+    betNumbers: []
   };
 
   componentWillMount() {}
@@ -142,6 +146,26 @@ export default class Index extends Component {
       visible: true,
     });
   };
+  onConfirmFn = (betArr) => {
+    console.log('父组件接收到投注信息', betArr)
+    this.setState({
+      numbers: betArr.join('-'),
+      betNumbers: betArr
+    })
+  }
+  confirmBet = () => {
+    // 玩家确认投注，发起请求
+    Taro.showLoading(
+      {
+        title: '投注中',
+      }
+    )
+    setTimeout(() => {
+      Taro.hideLoading()
+      Taro.showToast({title: '投注成功'})
+      this.setState({ showDialog: false })
+    }, 2000)
+  }
 
   render() {
     return (
@@ -179,7 +203,7 @@ export default class Index extends Component {
           <div className='resultAhead'>
             <div className='text'>
               第
-              <Text style={{ color: "#f44a07", padding: "0 4px" }}>{123}</Text>
+              <Text style={{ color: "#f44a07", padding: "0 4px" }}>{this.state.betIssue}</Text>
               期<div style={{ fontSize: "0.9rem" }}>开奖结果</div>
             </div>
             <div className='countDown'>
@@ -282,7 +306,7 @@ export default class Index extends Component {
                   <Input
                     className='formInput'
                     type='text'
-                    placeholder='123'
+                    placeholder={this.state.betIssue}
                   ></Input>
                   <Text>期</Text>
                 </View>
@@ -296,14 +320,31 @@ export default class Index extends Component {
                   readonly
                   className='formInput'
                   type='text'
-                  placeholder='点击依次选择'
-                  onClick={() => this.setState({ showCascader: true })}
+                  placeholder={this.state.numbers}
+                  onClick={() => {
+                    if (this.state.betKink === 0) {
+                      Taro.showToast({
+                        title: '请先选择快乐玩法',
+                        icon: 'none',
+                        mask: true
+                      })
+                      return
+                    }
+                    this.setState({ showCascader: true }
+                  )}}
                 ></Input>
               </Form.Item>
               <Form.Item className='formItem' label='投入注数' name='money'>
                 <InputNumber
                   className='formInput numberInput'
                   modelValue={this.state.betCount}
+                  onChangeFuc={(value) => {
+                    this.setState(
+                      {
+                        betCount: value
+                      }
+                    )
+                  }}
                 />
               </Form.Item>
 
@@ -312,6 +353,14 @@ export default class Index extends Component {
                 block
                 type='primary'
                 onClick={() => {
+                  if (this.state.betNumbers.length === 0) {
+                    Taro.showToast({
+                      title: '请先填写投注信息',
+                      icon: 'none',
+                      mask: true
+                    })
+                    return
+                  }
                   this.setState({ showDialog: true });
                 }}
               >
@@ -321,10 +370,12 @@ export default class Index extends Component {
             <Dialog
               title='确认投注'
               visible={this.state.showDialog}
-              onOk={() => this.setState({ showDialog: false })}
+              onOk={this.confirmBet}
               onCancel={() => this.setState({ showDialog: false })}
             >
-              投注信息......
+              <Text>{this.state.betIssue}期 & {this.state.baseDesc} & {this.state.betNumbers.join('-')} & {this.state.betCount}注</Text>
+              
+              
             </Dialog>
           </Popup>
           <Picker
@@ -338,6 +389,7 @@ export default class Index extends Component {
             kind={this.state.betKink}
             show={this.state.showCascader}
             onClose={() => this.setState({ showCascader: false })}
+            onConfirm={this.onConfirmFn}
           ></MyNumberPicker>
         </View>
       </>

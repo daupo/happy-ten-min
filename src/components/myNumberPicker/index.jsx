@@ -48,6 +48,15 @@ export default (props) => {
     setCount(count + 1);
     nextNumber(count);
   };
+
+  const confirmSelect = () => {
+    console.log('子组件回调父组件传过来的事件。将投注信息传入该函数')
+    props.onConfirm(betArr)
+    setCount(1)
+    setBetArr([])
+    setShowBottom(false);
+  }
+
   return (
     <div>
       (
@@ -63,12 +72,12 @@ export default (props) => {
         }}
       >
         <div className='box'>
-          <h1 className='h1'>依次选择号码{JSON.stringify(betArr)}</h1>
+          <h1 className='h1'>依次选择号码</h1>
           <div className='main'>
             <div className='titleBox' id='titleBox'>
               <div className='title'>号码一</div>
               <div className='paBtn'>
-                <Button type='danger' size='small'>
+                <Button onClick={confirmSelect} type='danger' size='small'>
                   确认
                 </Button>
               </div>
