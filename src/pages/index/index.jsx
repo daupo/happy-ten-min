@@ -113,7 +113,7 @@ export default class Index extends Component {
     betKink: 0,
     numbers: '点击依次选择',
     betIssue: '123',
-    betNumbers: []
+    betNumbers: [],
   };
 
   componentWillMount() {}
@@ -322,6 +322,7 @@ export default class Index extends Component {
                   type='text'
                   placeholder={this.state.numbers}
                   onClick={() => {
+                    
                     if (this.state.betKink === 0) {
                       Taro.showToast({
                         title: '请先选择快乐玩法',
@@ -353,6 +354,17 @@ export default class Index extends Component {
                 block
                 type='primary'
                 onClick={() => {
+                  let temp = []
+                  let flag = true
+                  this.state.betNumbers.forEach((number, index) => {
+                    !temp.includes[number] && temp.push(number);
+                    temp.indexOf(number) !== index && (flag = false)
+                  })
+                  if (!flag) {
+                    Taro.showToast({title: '投注号码重复了', icon: 'error'})
+                    return
+                  }
+
                   if (this.state.betNumbers.length === 0) {
                     Taro.showToast({
                       title: '请先填写投注信息',

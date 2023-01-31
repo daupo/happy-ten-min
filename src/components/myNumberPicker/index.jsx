@@ -26,6 +26,8 @@ export default (props) => {
   const [showBottom, setShowBottom] = useState(props.show);
 //   const [title1, setTitle1] = useState("号码一");
   useEffect(() => {
+    setCount(1)
+    setBetArr([])
     setShowBottom(props.show);
     console.log(props.show);
   }, [props.show]);
