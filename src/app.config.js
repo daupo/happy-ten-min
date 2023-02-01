@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 export default defineAppConfig({
   lazyCodeLoading: 'requiredComponents',
   pages: [
@@ -13,6 +14,7 @@ export default defineAppConfig({
 			'pages/money/index',
 			'pages/myBet/index',
 			'pages/recharge/index',
+			'pages/voucherCenter/index',
 		  ]
 	  }
   ],

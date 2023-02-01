@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
 export default definePageConfig({
-  navigationBarTitleText: 'happyTen',
+  navigationBarTitleText: '充值中心',
 	
 })

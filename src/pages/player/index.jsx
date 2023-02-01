@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
-import './index.scss'
-import { Button, Image, Cell } from '@nutui/nutui-react-taro';
+import { Cell } from '@nutui/nutui-react-taro';
 import Taro from '@tarojs/taro';
+import './index.scss'
 
 export default class Player extends Component {
 
@@ -32,13 +32,13 @@ export default class Player extends Component {
   render () {
     return (
       <View classNameName='player'>
-		<View className="main">
-				<div className="userBg">
-					<div className="content" onClick={this.toAuthLogin}>
-						<div className="avatar">
-							<img src={this.state.avatarUrl} alt="" />
+		<View className='main'>
+				<div className='userBg'>
+					<div className='content' onClick={this.toAuthLogin}>
+						<div className='avatar'>
+							<img src={this.state.avatarUrl} alt='' />
 						</div>
-						<div className="useInfo">
+						<div className='useInfo'>
 							{
 								!Taro.getStorageSync('userInfo').hasUserInfo ? 
 								(<View>

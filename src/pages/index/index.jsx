@@ -41,20 +41,32 @@ const partItemStyle = {
 const partItemSymbolStyle = {
   margin: "0 5px",
 };
-const CD = () => {
+const CD = (props) => {
   const [resetTime, setResetTime] = useState({
     m: "00",
     s: "00",
   });
+  const dateNow = Date.now()
   const stateRef = useRef({
-    endTime: Date.now() + 60 * 1000 * 10,
+    startTime: dateNow,
+    endTime: dateNow + 10 * 1000 * props.endMin,
   });
   const onUpdate = (v) => {
     setResetTime(v);
+    // console.log(v)  // {d: 0, h: 0, m: 0, s: 0, ms: 0}
+
   };
 
+  const cdRef = useRef(null)
+ 
+  const onEndFn = () => {
+    stateRef.current.startTime = stateRef.current.startTime + 10 * 1000 * props.endMin
+    stateRef.current.endTime = stateRef.current.endTime + 10 * 1000 * props.endMin
+    // cdRef.current.reset()
+  }
+
   return (
-    <CountDown endTime={stateRef.current.endTime} onUpdate={onUpdate}>
+    <CountDown millisecond autoStart ref={cdRef} onEnd={onEndFn} startTime={stateRef.current.startTime} endTime={stateRef.current.endTime} onUpdate={onUpdate}>
       <div
         className='countdown-part-box'
         style={{ display: "flex", alignItems: "center" }}
@@ -118,7 +130,15 @@ export default class Index extends Component {
 
   componentWillMount() {}
 
-  componentDidMount() {}
+  componentDidMount() {
+    // 轮询开奖结果
+    setInterval(() => {
+      // 发起请求
+      this.state.resultArr.forEach((n, i) => {
+        this.ballRun(document.getElementsByClassName('ball')[i], n)
+      } )
+    }, 1000 * 10)
+  }
 
   componentWillUnmount() {}
 
@@ -165,6 +185,18 @@ export default class Index extends Component {
       Taro.showToast({title: '投注成功'})
       this.setState({ showDialog: false })
     }, 2000)
+  } 
+  ballRun(el, targetNum) {
+    let timerT;
+    clearTimeout(timerT)
+    const arr = ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20']
+    let timerI = setInterval(() => {
+      el.innerHTML = arr[parseInt(Math.random() * 20)]
+    }, 100);
+    timerT = setTimeout(() => {
+      clearInterval(timerI)
+      el.innerHTML = targetNum
+    }, 3000)
   }
 
   render() {
@@ -216,12 +248,12 @@ export default class Index extends Component {
               >
                 距离下次开奖:
               </Text>
-              <CD></CD>
+              <CD endMin={1}></CD>
             </div>
           </div>
           <div className='resultBox'>
             {this.state.resultArr.map((value, index) => {
-              return <div className='ball' key={index}>{value}</div>;
+              return <div className='ball' id='ball' key={index}>{value}</div>;
             })}
           </div>
           <Divider></Divider>

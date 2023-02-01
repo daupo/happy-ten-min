@@ -61,7 +61,7 @@ export default (props) => {
 
   return (
     <div>
-      (
+      
       <Popup
         closeable
         round
@@ -95,7 +95,7 @@ export default (props) => {
           </div>
         </div>
       </Popup>
-      )
+    
     </div>
   );
 };
