@@ -18,10 +18,14 @@
 .item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid #000;
     padding: 1rem 0.5rem;
+    .jifen {
+        font-size: 1.3rem;
+    }
     .sm {
         font-size: 0.8rem;
-        // color: #;
+        color: grey;
     }
 }

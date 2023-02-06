@@ -12,7 +12,7 @@ const mapStataToProps = (state) => {
 class Player extends Component {
 
   state = {
-	avatarUrl: Taro.getStorageSync('userInfo')?.userInfo?.avatarUrl || require('../../assets/logo.webp'),
+	avatarUrl: Taro.getStorageSync('userInfo')?.userInfo?.avatarUrl || require('/src/assets/logo.png'),
 	nickName: Taro.getStorageSync('userInfo')?.userInfo?.nickName
   }
 

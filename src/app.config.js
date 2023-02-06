@@ -5,7 +5,7 @@ export default defineAppConfig({
     'pages/index/index',
 	'pages/player/index',
   ],
-  subpackages: [
+  subpackages: [ 
 	  {
 		  root: 'packageA',
 		  pages: [

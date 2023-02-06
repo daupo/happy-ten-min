@@ -1,0 +1,46 @@
+.cp {
+    padding: 0.5rem;
+    .title {
+        font-weight: bold;
+        font-size: 1.8rem;
+        text-align: center;
+        background-color: darkgoldenrod;
+        margin-bottom: .5rem;
+    }
+}
+
+.aBet {
+    padding: 1rem;
+    border: 6px dotted #000;
+    border-radius: 2rem;
+    background-color: silver;
+    .betTime {
+        display: flex;
+    }
+    .issue {
+        display: flex;
+    }
+    .body {
+        display: flex;
+        .betKind {
+            margin-right: 1.5rem;
+        }
+        .myBet {
+            display: flex;
+            .ball {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 1.2rem;
+                height: 1.2rem;
+                background-color: skyblue;
+                border-radius: 50%;
+                margin-right: .5rem;
+            }
+        }
+    }
+    .count {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

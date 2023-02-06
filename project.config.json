@@ -1,5 +1,5 @@
 {
-  "miniprogramRoot": "dist/",
+  "miniprogramRoot": "dist/weapp/",
   "projectname": "happyTenMin",
   "description": "",
   "appid": "wx12646d522406f00a",
@@ -16,7 +16,7 @@
       "outputPath": ""
     }
   },
-  "compileType": "miniprogram",
+  "compileType": "game",
   "libVersion": "2.30.0",
   "srcMiniprogramRoot": "dist/",
   "packOptions": {

@@ -8,7 +8,8 @@ const config = {
     828: 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  // outputRoot: 'dist',
+  outputRoot: `dist/${process.env.TARO_ENV}`,
   sass:{
     data: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";`
   },

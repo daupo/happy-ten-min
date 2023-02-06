@@ -93,7 +93,7 @@ export default class Login extends Component {
     return (
       <View className='login'>
         <div className="centerWrapper">
-        	<img src={require('../../assets/logo.webp')} />
+        	<img src={require('/src/assets/logo.png')} />
         	<p>登录开始happy</p>
         	<Button onClick={this.login} type="info">授权登录</Button>
         </div>

@@ -18,7 +18,7 @@ export default () => {
 			<div className='item'>
 				<div className='itemInfo'>
 					<div className='jifen'>666积分</div>
-					<div className='sm'>无活动福利</div>
+					<div className='sm'>普通充值，无活动福利</div>
 					<div className='sm'>01-13 19:05</div>
 				</div>
 				<div>

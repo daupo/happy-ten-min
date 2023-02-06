@@ -215,7 +215,7 @@ export default class Index extends Component {
           >
             <SwiperItem>
               <Image
-                src={require("../../assets/logo.webp")}
+                src={require("/src/assets/logo.png")}
                 height='150'
               ></Image>
             </SwiperItem>
@@ -310,39 +310,6 @@ export default class Index extends Component {
             className='popup'
             closeable
             round
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
             visible={this.state.visible}
             style={{ height: "60%" }}
             position='bottom'
