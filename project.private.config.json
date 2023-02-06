@@ -36,6 +36,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageA/pages/money/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -2,7 +2,7 @@
 .userBg {
 		position: relative;
 		height: 270rpx;
-		padding-right: 360rpx;
+		// padding-right: 360rpx;
 		background-image: linear-gradient(45deg, #f35151, #fdb160);
 
 		.content {
@@ -43,7 +43,7 @@
 	
 	
 .score {
-	display: flex;
+	display: inline-flex;
 	padding: 0.5rem 1rem;
 	color: #333;
 	border: 1px solid darkred;
@@ -52,5 +52,8 @@
 	margin-top: 0.3rem;
 	margin-left: 1rem;
 	box-shadow: 0.125rem 0.125rem rgba(0, 0, 0, .4);
+	div {
+		display: flex;
+	}
 }
 

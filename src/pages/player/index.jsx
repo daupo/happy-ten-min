@@ -2,9 +2,14 @@ import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
 import { Cell } from '@nutui/nutui-react-taro';
 import Taro from '@tarojs/taro';
+import { connect } from 'react-redux';
 import './index.scss'
 
-export default class Player extends Component {
+const mapStataToProps = (state) => {
+	return { ...state }
+}
+
+class Player extends Component {
 
   state = {
 	avatarUrl: Taro.getStorageSync('userInfo')?.userInfo?.avatarUrl || require('../../assets/logo.webp'),
@@ -52,7 +57,7 @@ export default class Player extends Component {
 						</div>
 					</div>
 					<div className='score'>
-						<div>我的积分: <Text style={{color: 'darkred'}}>0</Text></div>
+						<div>我的积分:&nbsp;&nbsp;<Text style={{color: 'darkred'}}>{this.props.user.playerScore}</Text></div>
 						<span onClick={() => Taro.navigateTo({url: '/packageA/pages/recharge/index'})} style={{color: 'blue', textDecoration: 'underLine', marginLeft: '20px'}}>充值</span>
 					</div>
 				</div>
@@ -64,3 +69,5 @@ export default class Player extends Component {
     )
   }
 }
+
+export default connect( mapStataToProps )(Player)
